@@ -10,22 +10,25 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
-def print_board(bo):
+def sudoku_board(bo):
 
-    for i in range(len(bo)):
-        if i % 3 == 0 and i != 0:
+    for x in range(len(bo)):
+        if x % 3 == 0 and x != 0:
             print("- - - - - - - - - - - - - ")
 
-        for j in range(len(bo[0])):
-            if j % 3 == 0 and j != 0:
+        for y in range(len(bo[0])):
+            if y % 3 == 0 and y != 0:
                 print (" | ", end="")
 
-            if j == 8:
-                print(bo[i][j])
+            if y == 8:
+                print(bo[x][y])
             else:
-                print(str(bo[i][j]) + " ", end="")
+                print(str(bo[x][y]) + " ", end="")
 
-print_board(board)
+sudoku_board(board)
 
-
-        
+def search_empty(bo):
+    for x in range(len(bo)):
+        for y in range(len(bo[0])):
+            if bo[x][y] == 0:
+                return(x, y) #row, col
