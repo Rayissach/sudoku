@@ -38,7 +38,7 @@ def valid(brd, num, pos):
     
     #Check column
     for x in range(len(brd)):
-        if brd[x][pos[1]] == num and pos[0] != 1:
+        if brd[x][pos[1]] == num and pos[0] != x:
             return False
 
     #Check box
@@ -49,6 +49,8 @@ def valid(brd, num, pos):
         for y in range(box_x*3, box_x*3 + 3):
             if brd[x][y] == num and (x,y) != pos:
                 return False 
+
+    return True
 
 def sudoku_board(brd):
 
