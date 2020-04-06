@@ -10,13 +10,24 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
-def solve(brd):
+def solve_board(brd):
 
     find = search_empty
     if not find:
         return True 
     else:
         row, col = find
+
+    for x in range(1,10):
+        if valid(brd, x, (row, col)):
+            brd[row][col] = x
+
+            if solve_board(brd):
+                return True
+
+            brd[row][col] = 0
+
+    return False
 
 def valid(brd, num, pos):
 
