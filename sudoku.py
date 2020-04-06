@@ -12,7 +12,7 @@ board = [
 
 def solve_board(brd):
 
-    find = search_empty
+    find = search_empty(brd)
     if not find:
         return True 
     else:
@@ -73,3 +73,8 @@ def search_empty(brd):
                 return(x, y) #row, col
 
     return None 
+
+sudoku_board(board)
+solve_board(board)
+print("_____________________")
+sudoku_board(board)
